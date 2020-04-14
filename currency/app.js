@@ -1,4 +1,5 @@
-const ENDPOINT_DOLLAR = 'https://currencyapi.net/api/v1/rates?key=jPOHRJ0qTEdGzsaAj1p9HAk5x0bYReDr5hUa&base=usd';
+const ENDPOINT_DOLLAR = 'https://api.exchangeratesapi.io/latest?base=USD';
+const ENDPOINT_EURO = 'https://api.exchangeratesapi.io/latest?base=EUR';
 
 const getDollar = async () => {
     try {
@@ -10,4 +11,24 @@ const getDollar = async () => {
     }
 };
 
-console.log(getDollar());
+const getEuro = async () => {
+    try {
+        const res = await axios.get(`${ENDPOINT_EURO}`);
+
+        return res.data;
+    } catch (e) {
+        console.error(e);
+    }
+};
+
+var main = document.getElementById('main');
+var dollarValue = document.getElementById('dollar-value');
+var euroValue = document.getElementById('euro-value');
+
+Promise.resolve(getDollar()).then(function(data) {
+    dollarValue.innerHTML = data.rates.BRL;
+});
+
+Promise.resolve(getEuro()).then(function(data) {
+    euroValue.innerHTML = data.rates.BRL;
+});
