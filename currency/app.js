@@ -1,5 +1,5 @@
-const ENDPOINT_DOLLAR = 'https://api.exchangeratesapi.io/latest?base=USD';
-const ENDPOINT_EURO = 'https://api.exchangeratesapi.io/latest?base=EUR';
+const ENDPOINT_DOLLAR = 'https://currencyapi.net/api/v1/rates?key=jPOHRJ0qTEdGzsaAj1p9HAk5x0bYReDr5hUa&base=USD';
+const ENDPOINT_EURO = 'http://data.fixer.io/api/latest?access_key=cdb26f9ad343fc84e401e09a597128a4';
 
 const getDollar = async () => {
     try {
